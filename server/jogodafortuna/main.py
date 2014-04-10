@@ -11,6 +11,10 @@ from bottle import Bottle
 # application is embedded within an App Engine WSGI application server.
 bottle = Bottle()
 
+@bottle.get('/service')
+def index():
+    return 'Service API'
+
 
 @bottle.error(404)
 def error_404(error):
