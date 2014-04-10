@@ -15,6 +15,8 @@ Ink.createModule('App.Fortune.Shell', '1', ['App.Fortune', 'App.Fortune.Libs.Ani
     };
 
     Module.prototype.handleBeforeModuleDestroy = function(element) {
+    	return;
+    	
     	var moduleEl=element.firstChild;
     	
     	ko.cleanNode(moduleEl); // Remove old module bindings

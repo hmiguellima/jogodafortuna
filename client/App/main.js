@@ -5,8 +5,8 @@
  * - Require app module 
  * 
  */
-Ink.setPath('App', 'App/');
-Ink.setPath('Ink', 'libs/Ink/');
+Ink.setPath('App', '/static/App/');
+Ink.setPath('Ink', '/static/libs/Ink/');
 
 Ink.requireModules(['App.Fortune'], function(app) {
     app.run();
