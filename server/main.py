@@ -5,15 +5,16 @@ handler.
 """
 
 # import the Bottle framework
-from bottle import Bottle, redirect
+from bottle import Bottle
 
 # Run the Bottle wsgi application. We don't need to call run() since our
 # application is embedded within an App Engine WSGI application server.
 bottle = Bottle()
 
-@bottle.route('/')
-def home():
-    redirect('/static/index.html')
+@bottle.get('/service')
+def index():
+    return 'Service API'
+
 
 @bottle.error(404)
 def error_404(error):
