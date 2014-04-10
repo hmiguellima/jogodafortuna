@@ -26,7 +26,10 @@ handlers:
   static_files: ../client/index.html
   upload: index\.html
 
-- url: /service
+- url: /service/v1/[a-z]+/[a-z]+
+  script: main.bottle
+
+- url: /service/v1/[a-z]+/[a-z]+/.*
   script: main.bottle
 
 # Third party libraries that are included in the App Engine SDK must be listed
