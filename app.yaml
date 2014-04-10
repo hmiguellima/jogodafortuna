@@ -16,17 +16,17 @@ threadsafe: yes
 
 handlers:
 - url: /static
-  static_dir: ../client
+  static_dir: static
 
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
 
 - url: /
-  static_files: ../client/index.html
+  static_files: static/index.html
   upload: index\.html
 
-- url: /service
+- url: /service/.*
   script: main.bottle
 
 # Third party libraries that are included in the App Engine SDK must be listed

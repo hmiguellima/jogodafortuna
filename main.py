@@ -11,7 +11,7 @@ from bottle import Bottle
 # application is embedded within an App Engine WSGI application server.
 bottle = Bottle()
 
-@bottle.get('/service')
+@bottle.get('/service/hello')
 def index():
     return 'Service API'
 
