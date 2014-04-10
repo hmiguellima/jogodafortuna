@@ -16,14 +16,14 @@ threadsafe: yes
 
 handlers:
 - url: /static
-  static_dir: ../../client
+  static_dir: ../client
 
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
 
 - url: /
-  static_files: ../../client/index.html
+  static_files: ../client/index.html
   upload: index\.html
 
 - url: /service
