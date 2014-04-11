@@ -1,5 +1,5 @@
 # import the Bottle framework
-from bottle import Bottle, request, template, redirect, abort
+from bottle import Bottle, request, template, abort
 
 # Run the Bottle wsgi application. We don't need to call run() since our
 # application is embedded within an App Engine WSGI application server.
@@ -9,41 +9,50 @@ from controllers.users import UserController
 
 users = UserController()
 
-@bottle.get('/service/v1/user/detail/<user_id>')
-def user_detail(user_id):
-    user = users.detail(user_id)
+@bottle.get('/service/v1/user/detail/<user_key>')
+def detail(user_key):
+    user = users.detail(user_key)
     if not user:
         abort(404, 'User not found.')
     return user
 
 
 @bottle.get('/service/v1/user/list')
-def users_list():
-    return dict(users=users.list())
+def lst():
+    result = dict(users=[])
+    urs = users.list()
+    for u in urs:
+        result['users'] += [dict(key=str(u.key()), name=u.name, email=u.email)]
+    return result
 
 
-@bottle.get('/service/v1/user/edit/<user_id>')
-def user_edit(user_id):
-    user = users.detail(user_id)
+@bottle.get('/service/v1/user/edit/<user_key>')
+def edit(user_key):
+    user = users.detail(user_key)
     if not user:
         abort(404, 'User not found.')
-    return template('server/edit_user', dict(name=user.name, email=user.email))
+    return template('server/edit_user', dict(key=str(user.key()), name=user.name, email=user.email))
 
 
-@bottle.put('/service/v1/user/edit/<user_id>')
-def user_edit_put(user_id):
+@bottle.post('/service/v1/user/edit/<user_key>')
+def edit_post(user_key):
     name = request.forms.get('name')
     email = request.forms.get('email')
-    users.edit(user_id, name, email)
+    users.edit(user_key, name, email)
 
 
 @bottle.get('/service/v1/user/create')
-def user_create():
+def create():
     return template('server/create_user')
 
 
 @bottle.post('/service/v1/user/create')
-def user_create_post(user_id=''):
+def create_post(user_id=''):
     name = request.forms.get('name')
     email = request.forms.get('email')
     users.create(name, email)
+
+
+@bottle.delete('/service/v1/user/delete/<user_key>')
+def delete(user_key):
+    users.delete(user_key)
