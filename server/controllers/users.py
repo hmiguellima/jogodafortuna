@@ -6,22 +6,25 @@ class UserController:
 
 
     def detail(self, user_id):
-        key = db.Key.from_path('User', user_id)
-        return db.get(key)
+        user_key = db.Key.from_path('User', user_id)
+        u = User.get(user_key)
+        if u:
+            user = dict(id=u.key().id(), name=u.name, email=u.email)
+        else:
+            user = None
+        return user
 
 
     def list(self):
         result = []
         q = User.all()
         for u in q.run():
-            print u.key()
-            result.append(dict(name=u.name, email=u.email))
+            result.append(dict(id=u.key().id(), name=u.name, email=u.email))
         return result
 
 
     def edit(self, user_id, name, email):
-        key = db.Key.from_path('User', user_id)
-        u = db.get(key)
+        u = self.detail(user_id)
         u.name = name
         u.email = email
         u.put()
