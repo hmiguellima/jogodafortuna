@@ -1,9 +1,3 @@
-"""`main` is the top level module for your Bottle application.
-
-Loads the Bottle framework and adds a custom error
-handler.
-"""
-
 # import the Bottle framework
 from bottle import Bottle, request, template, redirect, abort
 
@@ -55,15 +49,3 @@ def user_create_post(user_id=''):
     email = request.forms.get('email')
     users.create(name, email)
     return redirect('/service/v1/user/list')
-
-
-@bottle.error(404)
-def error_404(error):
-    """Return a custom 404 error."""
-    return 'Sorry, Nothing at this URL.'
-
-
-@bottle.error(500)
-def error_500(error):
-    """Return a custom 500 error."""
-    return 'Sorry, there was an error: %s' % error
