@@ -8,7 +8,7 @@ Ink.createModule('App.Fortune', '1', ['Ink.App_1', 'Ink.Data.Binding_1', 'Ink.Pl
     
     // App constructor (only data initialization logic)
     var Module = function() {
-        App.call(this, 'home', 'home'); // Call the base initialization logic (set default route, undefined route)
+        App.call(this, 'splash', 'splash'); // Call the base initialization logic (set default route, undefined route)
 
         this.appTitle = 'Fortune Game';
     };
@@ -32,8 +32,9 @@ Ink.createModule('App.Fortune', '1', ['Ink.App_1', 'Ink.Data.Binding_1', 'Ink.Pl
 
     Module.prototype.listInvisibleRoutes = function() {
         return [
+          {hash: 'splash', module: 'App.Fortune.Splash'},
+          {hash: 'game', module: 'App.Fortune.Game'}
           /*
-          {hash: 'new', module: 'App.Tasks.EditTask'},
           {hash: 'edit\\?id=:id', module: 'App.Tasks.EditTask'}
           */
         ];

@@ -1,4 +1,6 @@
 Ink.createModule('App.Fortune.Shell', '1', ['App.Fortune', 'App.Fortune.Libs.Animation'], function(app, Animation) {
+	var toggle;
+	
     var Module = function() {
         var self=this;
         
@@ -11,13 +13,14 @@ Ink.createModule('App.Fortune.Shell', '1', ['App.Fortune', 'App.Fortune.Libs.Ani
     };
 
     Module.prototype.afterRender = function() {
-        app.signals.shellRendered.dispatch();
+        toggle=new Ink.UI.Toggle('#mainMenuTrigger');
+    	app.signals.shellRendered.dispatch();
     };
 
     Module.prototype.handleBeforeModuleDestroy = function(element) {
-    	return;
-    	
     	var moduleEl=element.firstChild;
+
+    	toggle._dismiss();
     	
     	ko.cleanNode(moduleEl); // Remove old module bindings
     	document.getElementById('tempContainer').appendChild(moduleEl);
@@ -28,13 +31,13 @@ Ink.createModule('App.Fortune.Shell', '1', ['App.Fortune', 'App.Fortune.Libs.Ani
         	Animation(moduleEl)
         	.set('opacity', 0.5)
         	.translate(-500)
-        	.duration('0.3s')
+        	.duration('0.75s')
         	.then(function() {
             	element.style.display = 'block';
             	moduleEl.parentNode.removeChild(moduleEl);
         	})
     		.end();
-    	}, 0);
+    	}, 250);
     };
 
     return new Module();

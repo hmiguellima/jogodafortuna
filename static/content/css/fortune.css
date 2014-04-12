@@ -137,17 +137,143 @@ footer>.ink-navigation>ul>li>a {
 	overflow-y: auto;
 }
 
-.task-item {
-	cursor: pointer;	
+#splashScreen {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 99999;
+	background-color: white;
+	background-image: url('/static/content/assets/splash.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
-.todo-kanban {
-    position: absolute;
-    left: 0.9em;
-    top: 4em;
-    right: 0.9em;
-    bottom: 3em;
-    overflow-y: auto;
+#homeScreen {
+	position: absolute;
+	left: 0px;
+	top: 3em;
+	right: 0px;
+	bottom: 0px;
+	background-color: white;
+	background-image: url('/static/content/assets/start-back.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#homeScreen>.menu-container {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	oveflow: visible;
+	top: 50%;
+	left: 50%;
+}
+
+#homeScreen>.menu-container>.ink-navigation {
+	width: 10em;
+	margin-left: -5em;
+	margin-top: -5em;
+}
+
+
+#gameScreen {
+	position: absolute;
+	left: 0px;
+	top: 3em;
+	right: 0px;
+	bottom: 0px;
+	background-color: white;
+}
+
+#dice {
+}
+
+#dice>img {
+}
+
+#boardGrid>.cell {
+	position: relative;
+	float: left;
+	width: 3em;
+	height: 2.5em;
+	margin: 0.25em;
+	background-color: white;
+	border: 1px solid gray;
+}
+
+#boardGrid {
+	float: left;
+	width:  21em;
+	height: 24em;
+}
+
+#boardGrid .player-container {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	overflow: visible;
+}
+
+#boardGrid .player-container>img {
+	position: absolute;
+	max-width: none;
+	max-height: none;
+	width: 1.8em;
+	margin-left: 1.2em;
+	margin-bottom: 1em;
+	z-index: 99;
+}
+
+#gamePanel {
+	float: left;
+	margin-left: 1em;
+}
+
+.snake-container, .ladder-container {
+	position: absolute;
+	overflow: visible;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0.5em;
+}
+
+#boardGrid .snake-container>img, #boardGrid .ladder-container>img {
+	position: absolute;
+	bottom: 0.5em;
+	display: block;
+	max-height: none;
+	max-width: none;
+	z-index: 99;
+}
+
+.snake-container>img {
+	margin-left: 30%;
+	width: 1em;	
+}
+
+.ladder-container>img {
+	margin-left: 15%;
+	width: 2em;	
+}
+
+#playerPanel>* {
+	margin-top: 1em;	
+	display: block;
+}
+
+#dicePanel {
+	margin-top: 1em;
+}
+
+.draw-button {
+	display: block;
+	margin-top: 1em;
+	margin-left: -0.1em;
 }
 
 /*****************************

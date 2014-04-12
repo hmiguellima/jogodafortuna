@@ -1,0 +1,28 @@
+<div id="gameScreen">
+	<div id="boardGrid">
+		<!-- ko foreach: boardCells -->
+			<div class="cell">
+				<div class="cell-number" data-bind="text: number"></div>
+				<div class="snake-container" data-bind="if: snake">
+					<img src="/static/content/assets/snake-a.png" data-bind="style: {height: height}"></img>
+				</div>
+				<div class="ladder-container" data-bind="if: ladder">
+					<img src="/static/content/assets/ladder-a.png" data-bind="style: {height: height}"></img>
+				</div>
+			</div>
+		<!-- /ko -->
+		<div class="player-container">
+			<img data-bind="attr: {src: playerIcon}, style: {left: playerX, bottom: playerY}"></img>
+		</div>
+	</div>
+	<div id="gamePanel">
+		<div id="playerPanel">
+			<label>Player:</label>
+			<img data-bind="attr: {src: playerIcon}"></img>
+		</div>
+		<div id="dicePanel">
+			<div data-bind="module: {name: 'App.Fortune.Game.Cube', data: {cubeReady: cubeReadyHandler.bind($data), cubeStopped: cubeStoppedHandler.bind($data)}}"></div>
+			<button class="draw-button ink-button green" data-bind="click: drawDice">Throw</button>
+		</div>
+	</div>
+</div>
