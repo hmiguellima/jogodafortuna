@@ -4,10 +4,10 @@
 			<div class="cell">
 				<div class="cell-number" data-bind="text: number"></div>
 				<div class="snake-container" data-bind="if: snake">
-					<img src="/static/content/assets/snake-a.png" data-bind="style: {height: height}"></img>
+					<img data-bind="attr: {src: '/static/content/assets/'+$parent.snakeSprite()+'.png'}, style: {height: height}"></img>
 				</div>
 				<div class="ladder-container" data-bind="if: ladder">
-					<img src="/static/content/assets/ladder-a.png" data-bind="style: {height: height}"></img>
+					<img data-bind="attr: {src: '/static/content/assets/'+$parent.ladderSprite()+'.png'}, style: {height: height}"></img>
 				</div>
 			</div>
 		<!-- /ko -->

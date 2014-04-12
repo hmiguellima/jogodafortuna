@@ -209,6 +209,7 @@ footer>.ink-navigation>ul>li>a {
 	float: left;
 	width:  21em;
 	height: 24em;
+	position: relative;
 }
 
 #boardGrid .player-container {
@@ -224,8 +225,10 @@ footer>.ink-navigation>ul>li>a {
 	max-height: none;
 	width: 1.8em;
 	margin-left: 1.2em;
-	margin-bottom: 1em;
+	margin-bottom: 0.5em;
 	z-index: 99;
+	-webkit-transition: left 1s, bottom 1s;
+	transition: left 1s, bottom 1s;	
 }
 
 #gamePanel {
@@ -242,7 +245,16 @@ footer>.ink-navigation>ul>li>a {
 	bottom: 0.5em;
 }
 
-#boardGrid .snake-container>img, #boardGrid .ladder-container>img {
+#boardGrid .snake-container>img {
+	position: absolute;
+	top: 0.8em;
+	display: block;
+	max-height: none;
+	max-width: none;
+	z-index: 99;
+}
+
+#boardGrid .ladder-container>img {
 	position: absolute;
 	bottom: 0.5em;
 	display: block;
