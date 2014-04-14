@@ -21,8 +21,7 @@
 			<img data-bind="attr: {src: playerIcon}"></img>
 		</div>
 		<div id="dicePanel">
-			<div data-bind="module: {name: 'App.Fortune.Game.Cube', data: {cubeReady: cubeReadyHandler.bind($data), cubeStopped: cubeStoppedHandler.bind($data)}}"></div>
-			<button class="draw-button ink-button green" data-bind="click: drawDice">Throw</button>
+			<div title="Throw dice" class="draw-button dice" data-bind="click: drawDice, module: {name: 'App.Fortune.Game.Cube', data: {cubeReady: cubeReadyHandler.bind($data), cubeStopped: cubeStoppedHandler.bind($data)}}"></div>
 		</div>
 	</div>
 </div>

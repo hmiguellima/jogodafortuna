@@ -274,18 +274,23 @@ footer>.ink-navigation>ul>li>a {
 }
 
 #playerPanel>* {
-	margin-top: 1em;	
 	display: block;
+	margin-bottom: 1em;
 }
 
 #dicePanel {
-	margin-top: 1em;
+	margin-top: 1em;	
+}
+
+#dicePanel>* {
+	display: block;
+}
+
+#dicePanel>.dice {
 }
 
 .draw-button {
-	display: block;
-	margin-top: 1em;
-	margin-left: -0.1em;
+	cursor: pointer;	
 }
 
 /*****************************
@@ -322,5 +327,25 @@ input[type=date]::-webkit-outer-spin-button {
 }
 
 /* SMALL SCREENS */
-@media screen and (max-width: 649px) {
+@media screen and (max-width: 400px) {
+	#gamePanel {
+		clear: both;
+		float: none;
+		padding-top: 0.5em;
+	}
+
+	#dicePanel {
+		margin-top: -0.8em;
+		float: right;
+		margin-right: 1em;
+	}
+
+	#playerPanel {
+		display: block;
+	}
+
+	#playerPanel>* {
+		float: left;
+		margin-right: 1em;
+	}
 }

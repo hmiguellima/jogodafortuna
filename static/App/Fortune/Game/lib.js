@@ -192,7 +192,7 @@ Ink.createModule('App.Fortune.Game', '1', ['App.Fortune', 'Ink.Data.Binding_1'],
     	this.startAnim();
     	window.setTimeout(function() {
     		self.cancelAnim();
-    	}, 800);
+    	}, 500);
     };
 
     return new Module();
